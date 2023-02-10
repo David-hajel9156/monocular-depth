@@ -128,16 +128,6 @@ You can specify which GPU to use with the `CUDA_VISIBLE_DEVICES` environment var
 CUDA_VISIBLE_DEVICES=2 python train.py --model_name mono_model
 ```
 
-All our experiments were performed on a single NVIDIA Titan Xp.
-
-| Training modality | Approximate GPU memory  | Approximate training time   |
-|-------------------|-------------------------|-----------------------------|
-| Mono              | 9GB                     | 12 hours                    |
-| Stereo            | 6GB                     | 8 hours                     |
-| Mono + Stereo     | 11GB                    | 15 hours                    |
-
-
-
 ### 💽 Finetuning a pretrained model
 
 Add the following to the training command to load an existing model for finetuning:
@@ -211,20 +201,3 @@ If this data has been unzipped to folder `kitti_odom`, a model can be evaluated 
 python evaluate_pose.py --eval_split odom_9 --load_weights_folder ./odom_split.M/models/weights_29 --data_path kitti_odom/
 python evaluate_pose.py --eval_split odom_10 --load_weights_folder ./odom_split.M/models/weights_29 --data_path kitti_odom/
 ```
-
-
-## 📦 Precomputed results
-
-You can download our precomputed disparity predictions from the following links:
-
-
-| Training modality | Input size  | `.npy` filesize | Eigen disparities                                                                             |
-|-------------------|-------------|-----------------|-----------------------------------------------------------------------------------------------|
-| Mono              | 640 x 192   | 343 MB          | [Download 🔗](https://storage.googleapis.com/niantic-lon-static/research/monodepth2/mono_640x192_eigen.npy)           |
-| Stereo            | 640 x 192   | 343 MB          | [Download 🔗](https://storage.googleapis.com/niantic-lon-static/research/monodepth2/stereo_640x192_eigen.npy)         |
-| Mono + Stereo     | 640 x 192   | 343 MB          | [Download 🔗](https://storage.googleapis.com/niantic-lon-static/research/monodepth2/mono%2Bstereo_640x192_eigen.npy)  |
-| Mono              | 1024 x 320  | 914 MB          | [Download 🔗](https://storage.googleapis.com/niantic-lon-static/research/monodepth2/mono_1024x320_eigen.npy)          |
-| Stereo            | 1024 x 320  | 914 MB          | [Download 🔗](https://storage.googleapis.com/niantic-lon-static/research/monodepth2/stereo_1024x320_eigen.npy)        |
-| Mono + Stereo     | 1024 x 320  | 914 MB          | [Download 🔗](https://storage.googleapis.com/niantic-lon-static/research/monodepth2/mono%2Bstereo_1024x320_eigen.npy) |
-
-
